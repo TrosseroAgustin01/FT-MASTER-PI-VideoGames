@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-image: url(https://i.pinimg.com/originals/12/0a/6d/120a6d8a1e298131f286bc848bc245b9.jpg) */
 }
 
 .App-logo {
@@ -36,3 +37,4 @@
     transform: rotate(360deg);
   }
 }
+

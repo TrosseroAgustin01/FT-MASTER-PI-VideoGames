@@ -1,0 +1,14 @@
+body{
+    background-image: url(https://i.pinimg.com/originals/05/94/ab/0594ab55baf44835f449a5a530b068c3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.hola{
+    font-family: fantasy;
+    color: greenyellow;
+}
+
+

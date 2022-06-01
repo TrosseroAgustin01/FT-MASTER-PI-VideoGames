@@ -19,6 +19,9 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+// const getApiInfo = require('./src/Apidata/GetInfo');
+// const { getAllGames } = require('./src/Utils/getterInfo');
+const { YOUR_API_KEY } = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
@@ -26,3 +29,4 @@ conn.sync({ force: true }).then(() => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
+// .then(getApiInfo(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}`),console.log('se guardaron los datos'))
