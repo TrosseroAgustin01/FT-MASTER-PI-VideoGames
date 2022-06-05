@@ -8,7 +8,7 @@ module.exports={getAllVideoGames:async(req,res)=>{
         const { name } = req.query;
         const gam = await allGames();
         if(name){
-            const gamer = await gam.filter(el=>el.name.toLowerCase() === name.toLocaleLowerCase());
+            const gamer = await gam.filter(el=>el.name.toLowerCase().includes(name.toLowerCase()));
             if(gamer.length !== 0){
                 res.status(200).json(gamer)
             }else{
@@ -19,8 +19,8 @@ module.exports={getAllVideoGames:async(req,res)=>{
         }
     }
 ,postVideogame:async(req, res) => {
-        let { name, description, released, rating, genres, background_image, plataform } = req.body;
-        if(!name || !description || !genres  || !plataform ){
+        let { name, description, released, rating, genres, background_image, platform } = req.body;
+        if(!name || !description || !genres.length  || !platform.length ){
             res.status(400).send('Faltan parametros obligatorios')
     }else{  
         try {
@@ -30,17 +30,24 @@ module.exports={getAllVideoGames:async(req,res)=>{
             released, 
             rating, 
             background_image,
-            plataform
+            platform
           })
     
-          let genresDb = await Genre.findAll({
-            where: {
-              name:genres
-            },attributes:['id'] 
-          })
+          // let genresDb = await Genre.findAll({
+          //   where: {
+          //     name:genres
+          //   },attributes:['id'] 
+          // })
           
         
-          videogameCreated.addGenres(genresDb)
+          // videogameCreated.addGenres(genresDb)
+          genres.map(async(e) =>{const gen = await Genre.findOne({
+            where:{
+              name:e
+            }
+          })
+          await videogameCreated.addGenre(gen);
+        })
           res.send('Videogame creado correctamente')
         } catch (error) {
           console.log(error);

@@ -27,12 +27,17 @@ module.exports = (sequelize) => {
       max: 5.0
     }
   },
-  plataform:{
+  platform:{
     type:DataTypes.ARRAY(DataTypes.STRING),
     allowNull: false,
   },
   background_image:{
     type: DataTypes.STRING
+  },
+  createdInDB:{
+    type: DataTypes.BOOLEAN,
+    allowNull:false,
+    defaultValue: true
   }
   },{timestamps: false});
 };

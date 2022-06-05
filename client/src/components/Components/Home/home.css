@@ -1,37 +1,132 @@
-body{
-    background-image:url(https://i.pinimg.com/originals/05/94/ab/0594ab55baf44835f449a5a530b068c3.jpg);
+.fox{
+    background-image:url(https://i.pinimg.com/originals/16/6b/1d/166b1dba77140403e956a9cd5a8f363e.jpg);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     height: 100vh;
 }
-
-.caja{
-    color: #090909;
-    padding: 3px;
-    font-size: 18px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
-    border: 1px solid #e8e8e8;
-    transition: all .3s;
-    box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
-    border: 1px solid white;
-    box-shadow: 4px 4px 12px #c5c5c5,
-             -4px -4px 12px #ffffff;
+.nav{
+    width: 100vw;
+    top: 0;
+    height: 85px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ef233bf8;
+    z-index: 1000;
+    border-bottom: 3px solid rgb(37, 36, 36);
 }
 
-.ren{
-    color: #090909;
-    padding: 3px;
-    font-size: 18px;
-    border-radius: 0.5em;
-    background: #e8e8e8;
-    border: 1px solid #e8e8e8;
-    transition: all .3s;
-    box-shadow: 6px 6px 12px #c5c5c5,
-                -6px -6px 12px #ffffff;
-    border: 1px solid white;
-    box-shadow: 4px 4px 12px #c5c5c5,
-             -4px -4px 12px #ffffff; 
+/* .nav h1{
+    justify-content: center;
+} */
+.filtros{
+    background-color: #ef233bf8;
+    display: flex;
+    border-bottom: 3px solid rgb(37, 36, 36);
+    height: 80px;
+    justify-content: space-between;
 }
+
+
+
+.barra{
+    display: flex;
+    height: 50px;
+    background-color: #ef233bf8;
+    border-bottom: 3px solid rgb(37, 36, 36);
+}
+/* .bo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .bo select {
+    background-color: #0563af;
+    color: white;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .bo::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 40%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .bo:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .bo select option {
+    padding: 30px;
+  } */
+
+.carta{
+    text-align: center;
+}
+.conteiner{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 20px;
+    height: 100vh;
+    margin-top: 35px;
+}
+
+
+/* From uiverse.io by @Voxybuns */
+/* button {
+    /* Variables */
+   /* --button_radius: 5px;
+   --button_color: #e8e8e8;
+   --button_outline_color: #000000; */
+   /* font-size: 13px;
+   font-weight: bold;
+   border: none;
+   border-radius: var(--button_radius);
+   background: var(--button_outline_color);
+  }
+  
+  button {
+   display: block;
+   box-sizing: border-box;
+   border: 2px solid var(--button_outline_color);
+   border-radius: var(--button_radius);
+   padding: 0.75em 1.5em;
+   background: var(--button_color);
+   color: var(--button_outline_color);
+   transform: translateY(-0.2em);
+   transition: transform 0.1s ease;
+  }
+  
+  button:hover button {
+    /* Pull the button upwards when hovered */
+   /* transform: translateY(-0.33em);
+  }
+  
+  button:active button {
+    /* Push the button downwards when pressed */
+   /* transform: translateY(0); */
+  /* } */ 

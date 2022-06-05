@@ -27,16 +27,30 @@ const getApiInfo = async (url) =>{
             released:e.released,
             rating:e.rating,
             description:e.description,
-            genres:e.genres.map(el=>el.name).join(" "),
-            plataform: e.platforms.map(e => e.platform.name),
+            genres:e.genres,
+            platform: e.platforms.map(e => e.platform.name),
         }
     })
     return apiInfo
     
-}else {
+}
+    // for(let i=0;i<= apiInfo.length;i++){
+    //     const tango = await Videogame.findOrCreate({
+    //         where:{
+    //             name: apiInfo[i].name,
+    //             background_image:apiInfo[i].background_image,
+    //             released: apiInfo[i].released,
+    //             rating: apiInfo[i].rating,
+    //             description:apiInfo[i].description,
+    //             genres:apiInfo[i].genres,
+    //             plataform: apiInfo[i].plataform
+    //         }
+    //     })
+        // return tango;
+    // }
     return apiInfo
 };
-}
+
 const getInfo = async () =>{
     const dbData = await Videogame.findAll({
         include:{

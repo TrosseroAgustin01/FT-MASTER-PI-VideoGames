@@ -7,7 +7,7 @@ export default function Landing(){
         
     }
     return(
-        <div className="fondo">
+        <div className="App">
             <h1 className="hola"> BIENVENIDOS! </h1>
             <Link to='/home'>
                 <button className="inicio">Ingresar</button>

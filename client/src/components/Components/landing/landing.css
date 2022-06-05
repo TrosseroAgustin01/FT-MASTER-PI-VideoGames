@@ -1,14 +1,72 @@
-body{
-    background-image: url(https://i.pinimg.com/originals/05/94/ab/0594ab55baf44835f449a5a530b068c3.jpg);
+/* .fondo{
+    background-image: url(https://i.pinimg.com/originals/eb/77/86/eb77865a4919996ef3529b65fd04465f.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-}
+    justify-content: center;
+} */
 
 .hola{
+    /* margin-top: 30px; */
+    display:flex;
+    font-size:xx-large;
     font-family: fantasy;
-    color: greenyellow;
+    color: #0e370d;
+    justify-content: center;
 }
 
+.inicio{
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #0e370d,
+                -6px -6px 12px #0e370d;
+   }
+   
+   .inicio:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+                inset -4px -4px 12px #ffffff;
+}
+.App {
+    text-align: center;
+    background-image: url(https://i.pinimg.com/originals/eb/77/86/eb77865a4919996ef3529b65fd04465f.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    /* background-image: url(https://i.pinimg.com/originals/12/0a/6d/120a6d8a1e298131f286bc848bc245b9.jpg) */
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
 

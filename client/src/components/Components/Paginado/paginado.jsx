@@ -14,10 +14,12 @@ export default function Paginado({allVg, vgPP, paginado}){
                 {
                     pagN?.map(e => { // en este caso nuestro e(de elemento) representaria un numero de ese arreglo
                         return(
-                            <li className="pag">
-                                <a onClick={() => paginado(e)}>{e}</a> 
+                            <li  key={e}>
+                                    <div className="box">
+                                        <a className="poc" onClick={()=>paginado(e)}>{e}</a>
+                                    </div>
                             </li>
-                        )
+                            )
                     })
                 }
             </ul>

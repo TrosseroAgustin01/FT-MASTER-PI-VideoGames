@@ -2,14 +2,19 @@ import './App.css';
 import { Route, BrowserRouter,Routes } from 'react-router-dom';
 import Landing from './components/Components/landing/landing';
 import Home from './components/Components/Home/home';
+// import { Details } from './components/Components/details.jsx/details';
+import { Detail } from './components/Components/details/detail';
+import { Creator } from './components/Components/videogamesC/videogameC';
 
 function App() {
   return (<>
   <BrowserRouter>
-    <div className="App">
+    <div >
       <Routes>
         <Route exact path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/videogame/:id' element={<Detail/>}/>
+        <Route path='/videogames' element={<Creator/>} />
       </Routes>
     </div>
     {/* <Nav/> */}
