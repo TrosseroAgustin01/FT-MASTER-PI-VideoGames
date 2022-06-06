@@ -19,8 +19,8 @@ export const SerchBar = () => {
 
 
     return(
-        <div>
-            <input type="text"  placeholder="...ingresa aqui el nombre de tu videojuego favorito" onChange={e => {handleInputChange(e)}}/>
+        <div className="tdo">
+            <input className="textInputWrapper" type="text"  placeholder="...busca aqui" onChange={e => {handleInputChange(e)}}/>
             <button type="submit" onClick={e => {handleClick(e)}}>Bucar</button>
         </div>
     )

@@ -23,18 +23,37 @@ const reducer =(state = initialState, action) =>{
                     genres:action.payload
                 }
         case FILTER_BY_GENRES:
-            const allVg = state.allVg; 
-            // const generos = allVg.filter(e => e.genres?.some(el => el === action.payload))
-            const generos = action.payload === 'all' ? allVg : allVg.filter(e => e.genres.includes(action.payload)) 
+            // const allVg = state.allVg; 
+            // // const generos = allVg.filter(e => e.genres?.some(el => el === action.payload))
+            // const generos = action.payload === 'all' ? allVg : allVg.filter(e => e.genres.includes(action.payload)) 
+            // return {
+            //     ...state,
+            //     videogames: generos
+            const all = state.allVg
+            let vgAPI = []
+            let vgDB = []
+
+            all.forEach(e => {
+                if (e.hasOwnProperty("genres") && e.genres.includes(action.payload)) {
+                        vgAPI.push(e)
+                    }
+                });
+            all.forEach(e => { 
+                if (e.hasOwnProperty("genres") && e.genres.find(c => c.name === action.payload)) {
+                    vgDB.push(e)
+                    }
+                });
+            const filtroVg = vgAPI.concat(vgDB)
+            console.log(filtroVg)
             return {
                 ...state,
-                videogames: generos
-            }  
+                videogames: action.payload === "all" ? all : filtroVg
+            };
         case FILTER_BY_CREATOR:
             const creador = action.payload === 'created' ? state.allVg.filter(e => e.createdInDB) : state.allVg.filter(e => !e.createdInDB)
             return{
                 ...state,
-                videogames:creador
+                videogames: action.payload === 'all' ? state.allVg : creador
             }
         case ORDER_BY_NAME:
             let reubicaciónAlph = action.payload === 'asc' ?

@@ -81,19 +81,7 @@ export const filterByRating = (payload) =>{
     }
 }
 
-// export const getDetail = (id) => {
-//     console.log(id)
-//     return (dispatch)=>{
-//         fetch(`http://localhost:3001/videogame/${id}`)
-//         .then(data => data.json())
-//         .then(data => {
-//             return dispatch = ({
-//                 type:'GET_DETAIL',
-//                 payload : data
-//         })})
-//     }
-// }
-export function getDetail(id){
+export const getDetail = (id) =>{
     return async function(dispatch){
 
             var json = await axios.get(`http://localhost:3001/videogame/${id}`);

@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { getVidegameByGenre,postVG } from "../../../actions/actions";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,Navigate,useNavigate } from "react-router-dom";
+import '../videogamesC/videogamesC.css'
 
 function validate(state){
     const error={}
@@ -10,7 +11,7 @@ function validate(state){
     if(!state.name){
       error.name ='El nombre del videojuego es necesario.'
     }else if(state.name.length < 3 || state.name.length > 35){
-      error.name ='El nombre del videojuego debe contener entre 3 a 35 carcarteres'
+      error.name ='El nombre del videojuego debe contener entre 3 a 35 caracteres'
     }
     if(!state.description){
       error.description ='La descripción es necesaria'
@@ -18,7 +19,7 @@ function validate(state){
     if(!state.rating){
       error.ratin ='La valoracion es necesaria'
     }else if(state.rating < 0 || state.rating > 5){
-      error.rating ='La valoracion otorgada debe estar en uno (1) y cinco (5)'
+      error.rating ='La valoracion otorgada debe estar entre uno (1) y cinco (5)'
     }
     if(state.genres.length === 0){
       error.genres ='Debe seleccionar al menos un(1) genero'
@@ -33,8 +34,7 @@ function validate(state){
   
   
   export const Creator = () => {
-  
-    let plataformss = [
+    let platformss = [
         "PC","PlayStation","Xbox","Nintendo Switch","iOS", "Android","Nintendo","PS Vita","PSP","Wii","Game Boy","Atari","SEGA","PS5","PS4","PS3","PS2","PS1",
     ];
     const [button,setButton]=useState(true)
@@ -83,6 +83,7 @@ function validate(state){
       })}else{
         console.log('Plataforma ya agregada.')
       }
+      console.log(input)
   }
   const handleSelect=(e)=>{
     e.preventDefault()
@@ -113,7 +114,7 @@ function validate(state){
     if(!input.name||!input.rating||!input.description||!input.platform || !input.genres){
       return alert('Complete los campos vacios.')
     }
-    input.name=input.name.charAt().toUpperCase()+input.name.slice(1)
+    // input.name=input.name.charAt().toUpperCase()+input.name.slice(1)
     dispatch(postVG(input))
     setInput({
       name:'',
@@ -130,14 +131,13 @@ function validate(state){
       <div className="non">
         <div>
         <Link to='/home'><button className='back-button'>Regresar</button></Link>
-  
         </div>
-        <h1>Crea tu propio Juego!</h1>
-       <div>
+        <h1 className="title">Crea tu propio Juego!</h1>
+        <div>
         <form onSubmit={e=>handleSubmit(e)}>
-          <div>
-            <label>Name: </label>
-            <input
+          <div className="nom">
+            <label className="label">Name: </label>
+            <input className="input"
             onChange={e=>handleChange(e)}
             type='text'
             value={input.name}
@@ -146,9 +146,9 @@ function validate(state){
             <span>{error?.name ||''}</span>
           </div>
           
-          <div>
-            <label>Description: </label>
-            <textarea
+          <div className="nom">
+            <label className="label">Description: </label>
+            <textarea className="input"
             onChange={e=>handleChange(e)}
             type='text'
             value={input.description}
@@ -157,9 +157,9 @@ function validate(state){
             <span>{error?.description ||''}</span>
           </div>
           
-          <div>
-            <label>Rating: </label>
-            <input
+          <div className="nom">
+            <label className="label" >Rating: </label>
+            <input className="input"
             onChange={e=>handleChange(e)}
             type='number'
             value={input.rating}
@@ -170,18 +170,18 @@ function validate(state){
             </div>
           
   
-            <div>
-            <label>Released: </label>
-            <input
+            <div className="nom">
+            <label className="label">Released: </label>
+            <input className="input"
             onChange={e=>handleChange(e)}
             type='date'
             value={input.released}
             name='released'
             />
             </div>
-            <div>
-            <label>Background_image: </label>
-            <input
+            <div className="nom">
+            <label className="label">Background_image: </label>
+            <input className="input"
             onChange={e=>handleChange(e)}
             type='text'
             value={input.background_image}
@@ -190,30 +190,29 @@ function validate(state){
             />
             </div>
             <br/>
-            <div>
-              <label>Genres:</label>
-              <select onChange={e=>handleSelect(e)}>
-                <option hidden key={0}>select...</option>
+            <div className="nom">
+              <label className="label">Genres:</label>
+              <select className="input" onChange={e=>handleSelect(e)}>
+                <option >select...</option>
               {genres.map(g=>{
-                return(<option  key={g.id} value={g.name}>{g.name}</option>
+                return(<option  value={g.name}>{g.name}</option>
               )})}
               </select> 
             <span>{error?.genres ||''}</span>
   
             </div>
             <br/>
-            <div>
-            <label>platform:</label>
-              <select onChange={e=>handleSelectP(e)}>
+            <div className="nom">
+            <label className="label">platform:</label>
+              <select className="input" onChange={e=>handleSelectP(e)}>
               <option hidden>select...</option>
-            {plataformss.map(p=>{
+            {platformss.map(p=>{
               return(
                 
                 <option
                 
                 value={p}
                 name='platform'
-                key={plataformss.indexOf(p)}
                 >{p}</option>
                 
                 )
@@ -223,30 +222,32 @@ function validate(state){
   
             </div>
   
-              <div>
-               <button type='submit' disabled={button}>Crea tu Videojuego</button>
+              <div className="nom">
+                <button type='submit' disabled={button}>Crea tu Videojuego</button>
               </div>
             
         </form>
-              <div>
+              <div className="nom">
             <br/>
                 <span>Genres selected:</span>
                   {input.genres.map(g=>{
-                    return (<div key={input.genres.indexOf(g)}>
-                      <p key={input.genres.indexOf(g)}>{g}</p><button onClick={()=>handleDeleteGenre(g)}>x</button>
+                    return (<div>
+                      <p>{g}</p>
+                      <button onClick={()=>handleDeleteGenre(g)}>x</button>
                     </div>
                     )
                   })}
               </div>
               <br/>
-              <div>
+              <div className="nom">
                 <span>platform selected:</span>
   
                 {input.platform.map(p=>{
-                  return (<div key={p}>
-                    <p key={p}>{p}</p>
-                  <button onClick={()=>handleDeletePlat(p)}>x</button>
-                  
+                  return (<div className="igual">
+                    <div className="all">
+                      <button onClick={()=>handleDeletePlat(p)}>x</button>
+                      <p>{p}</p>
+                    </div>
                   </div>)
                 })}
               </div>

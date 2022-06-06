@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { getAllVideogames } from "../../../actions/actions";
@@ -47,38 +47,38 @@ export default function Home(){
     function HandleFilterByName(e){
         dispatch(filterByName(e.target.value))
         setPagActual(1);                            // seteo que comience a ordenar desde la primera pagina
-        setOrden(`Ordenado ${e.target.value}`)      // seteo que ordene desde que realizo el click
+        setOrden(`${e.target.value}`)      // seteo que ordene desde que realizo el click
     }
 
     function HandleFilterByRating(e){
         e.preventDefault();
         dispatch(filterByRating(e.target.value))
         setPagActual(1);
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`${e.target.value}`)
     }
 
     return(
         <div className="fox">
             <div className="nav">
-        <Link to='/videogames'>Crea tu VideoJuego</Link>
-            <h1>Videogames Page</h1>
+        <Link to='/videogames'><button className="botonsito" > Crea tu VideoJuego</button></Link>
+            <h1 >Videogames Page</h1>
             <br>
             </br>
-            <button className="ren" onClick={e => {handleClick(e)}}>Reincia tu busqueda</button>
+            <button className="botonsito" onClick={e => {handleClick(e)}}>Reincia tu busqueda</button>
     </div>
     <div className="filtros">
         <div className="bo">
             <label htmlFor="">Ordenado Por Nombre</label><br />
-            <select onChange={e => {HandleFilterByName(e)}}>  {/*Input que permite una selección entre un conjunto de opciones.*/}
-                <option value="all">Todos</option>
+            <select className="bot" onChange={e => {HandleFilterByName(e)}}>  {/*Input que permite una selección entre un conjunto de opciones.*/}
+                <option value="all">Todos ↓</option>
                 <option value='asc'>Orden Ascendente</option> {/* Etiqueta ligada a <select>. Permite añadir diferentes opciones al <select> */}
                 <option value='des'>Orden Descendente</option>
             </select>
         </div>
         <div className="box">
         <label htmlFor="">Ordenado Por Genero</label><br />
-            <select onChange={e =>{ HandleFilterByGenres(e)}}>
-                <option value="all">Todos</option>
+            <select className="bot" onChange={e =>{ HandleFilterByGenres(e)}}>
+                <option value="all">Todos ↓</option>
                 <option value="RPG">RPG</option>
                 <option value="Shooter">Shooter</option>
                 <option value="Casual">Casual</option>
@@ -101,16 +101,17 @@ export default function Home(){
         </div>
         <div className="box">
         <label htmlFor="">Ordenado por Rating</label><br />
-            <select onChange={e => {HandleFilterByRating(e)}}>
-                <option value="all">Todos</option>
+            <select className="bot" onChange={e => {HandleFilterByRating(e)}}>
+                <option value="all">Todos ↓</option>
                 <option value="asc">Orden Ascendente</option>
                 <option value='des'>Orden Descendente</option>
             </select>
         </div>
         <div className="box">
-        <label htmlFor="">Ordenados por Creador</label><br />
-            <select onChange={e => {HandleFilterByCreator(e)}}>
+        <label htmlFor="">Ordenados por Creador ↓</label><br />
+            <select className="bot" onChange={e => {HandleFilterByCreator(e)}}>
                 {/* <option value='all'>Todos</option> */}
+                <option value="all">Todos ↓</option>
                 <option value="created">Creados por el Usuario</option>
                 <option value="Api">VideoJuegos existentes</option>
             </select>
@@ -118,17 +119,13 @@ export default function Home(){
     </div>
         <div className="barra">
             <div>
-                <Link className="caja" to='/'>Volver Atras</Link>
-            </div>
-            {/* <div>
-                <Link className="caja" to='/'>Crea tu propio VideoJuego</Link>
-            </div> */}
-            <div>
-                <SerchBar/>
+                <Link className="botonsito" to='/'>Volver Atras</Link>
             </div>
         </div>
+            <div className="tdo">
+                <SerchBar/>
+            </div>
             <div>
-                {/* <Paginado vgPP={vgPP} allVg={allVg.length} paginado={paginado} /> */}
                 <div className="box">
                         <Paginado vgPP={vgPP} allVg={allVg.length} paginado={paginado} />
                     </div>
@@ -147,12 +144,3 @@ export default function Home(){
         </div>
     )
 }
-//  {/* {
-//                     allVideogames?.map(e =>{
-//                         return(
-//                             <fragment>
-//                                 <Link to={`/home/{e.id}`}></Link>
-//                                 <Card name={e.name} rating={e.rating} background_image={e.background_image} genre={e.genre} released={e.released} onClose={()=>{alert(e.name)}} id={e.id} />
-//                             </fragment>
-//                     )})
-//                 } */}

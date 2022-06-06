@@ -2,11 +2,11 @@ import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import '../Card/card.css'
 
-export default function Card({name,released,genres,background_image,rating,id,onClose}){
+export default function Card({name,released,genres,background_image,rating,id,onClose, createdInDB}){
     return(
         <div className="contenedor">
             <div className="caja">
-                    <div>
+                    <div className="nombre">
                         <Link  to={`/videogame/${id}`}>
                             <h3 className='uno' >{name}</h3>
                         </Link>

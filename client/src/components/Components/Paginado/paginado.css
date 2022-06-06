@@ -1,17 +1,4 @@
-.pag{
-    border:3px ;
-    color: brown;
-}
-.de{
-    justify-content: space-between;
-    border: solid rgb(255, 0, 0);
-}
-
-.poc{
-    border: solid rgb(255, 0, 0);
-    color: white;
-}
-
-.box{
-    border: solid rgb(255, 0, 0);
+.par{
+    display: flex;
+    justify-content: center;
 }
