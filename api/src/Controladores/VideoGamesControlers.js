@@ -32,15 +32,6 @@ module.exports={getAllVideoGames:async(req,res)=>{
             background_image,
             platform
           })
-    
-          // let genresDb = await Genre.findAll({
-          //   where: {
-          //     name:genres
-          //   },attributes:['id'] 
-          // })
-          
-        
-          // videogameCreated.addGenres(genresDb)
           genres.map(async(e) =>{const gen = await Genre.findOne({
             where:{
               name:e
@@ -54,4 +45,33 @@ module.exports={getAllVideoGames:async(req,res)=>{
           res.status(400).send('No se ha logrado crear el juego')
         }
       }
-    }}
+    },
+  // deleteVideogame:async(req,res) =>{
+  //   const{id} = req.params;
+  //   try {
+  //     if(id){
+  //       await Videogame.destroy({where:{id:id}})
+  //       res.status(200).json('videojuego eliminado correctamente')
+  //     }
+  //   } catch (error) {
+  //     res.status(404).json('no se ha podido eliminar ese videojuego')
+  //   }
+  // }
+}
+
+
+async function deleteVideogame (req,res){
+    const {id} = req.body;
+      if(id){
+    try {
+      const unico = await Videogame.findByPk(id)
+      if(unico){
+        Videogame.destroy({where:{id:id}})
+        res.status(200).send('videojuego eliminado correctamente')
+      }
+      res.status(400).send('no se ha logrado eliminar el juego')
+    } catch (error) {
+      res.status(400).send('no se ha logrado eliminar el juego')
+    }
+  }
+}

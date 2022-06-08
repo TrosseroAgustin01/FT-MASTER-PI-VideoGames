@@ -10,7 +10,7 @@ export const SerchBar = () => {
 
     function handleInputChange(e){
         e.preventDefault();
-        setName(e.target.value) // setea que lo que escribamos aqui va a convertirse ene l foco de busqueda de nuestro onCLick
+        setName(e.target.value) // setea que lo que escribamos aqui va a convertirse en el foco de busqueda de nuestro onCLick
     }
 
     function handleClick(e){

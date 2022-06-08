@@ -1,5 +1,6 @@
 // import { createStore, combineReducers } from 'redux';
-import {GET_ALL_VIDEOGAMES,RESET_DETAIL , GET_DETAIL ,GET_ALL_GENRES, FILTER_BY_GENRES, FILTER_BY_CREATOR, ORDER_BY_NAME, ORDER_BY_RATING,GET_VG_BY_NAME, POST_VG} from '../actions/actions' 
+// ORDER_BY_RELEASED 
+import {GET_ALL_VIDEOGAMES,RESET_DETAIL, GET_DETAIL ,GET_ALL_GENRES, FILTER_BY_GENRES, FILTER_BY_CREATOR, ORDER_BY_NAME, ORDER_BY_RATING,GET_VG_BY_NAME, POST_VG} from '../actions/actions' 
 
 
 const initialState={
@@ -25,7 +26,7 @@ const reducer =(state = initialState, action) =>{
         case FILTER_BY_GENRES:
             // const allVg = state.allVg; 
             // const generos = allVg.filter(e => e.genres?.some(el => el === action.payload))
-            const generos = action.payload === 'all' ? state.allVg : state.videogames.filter(e => e.genres.includes(action.payload)) 
+            const generos = action.payload === 'all' ? state.allVg : state.allVg.filter(e => e.genres.includes(action.payload)) 
             return {
                 ...state,
                 videogames: generos
@@ -51,7 +52,7 @@ const reducer =(state = initialState, action) =>{
             //     videogames: action.payload === "all" ? all : filtroVg
             // };
         case FILTER_BY_CREATOR:
-            const creador = action.payload === 'created' ? state.videogames.filter(e => e.createdInDB) : state.videogames.filter(e => !e.createdInDB)
+            const creador = action.payload === 'created' ? state.allVg.filter(e => e.createdInDB) : state.allVg.filter(e => !e.createdInDB)
             return{
                 ...state,
                 videogames: action.payload === 'all' ? state.allVg : creador
@@ -81,6 +82,32 @@ const reducer =(state = initialState, action) =>{
                     ...state,
                     videogames: action.payload === 'all'?  state.allVg  : reubicaciónAlph
                 }
+        // case ORDER_BY_RELEASED:
+        //     let reubicaciónFecha = action.payload === 'asc'?
+        //     state.allVg.sort(function(a, b){
+        //         if(a.released > b.released){
+        //             return 1;
+        //         }
+        //         if(b.released > a.released){
+        //             return -1;
+        //         }
+        //             return 0;
+        //     })
+        //     :
+        //     state.allVg.sort(function(a, b){
+        //         if(a.released < b.released){
+        //             return 1;
+        //         }
+        //         if(b.released < a.released){
+        //             return -1;
+        //         }
+        //             return 0;
+        //     })
+        //     return{
+        //         ...state,
+        //         videogames: reubicaciónFecha
+        //     }
+
         case ORDER_BY_RATING:
             let rubiPorRating = action.payload === 'des' ?
             state.videogames.sort(function(a, b){

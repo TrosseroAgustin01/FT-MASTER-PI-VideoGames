@@ -4,7 +4,7 @@ import { useDispatch,useSelector } from "react-redux";
 import { getAllVideogames } from "../../../actions/actions";
 import { Link } from "react-router-dom";
 import Card from '../Card/card';
-import { filterGamesByGenres,filterByCreator,filterByName, filterByRating } from "../../../actions/actions";
+import { filterGamesByGenres,filterByCreator,filterByName, filterByRating,orderByReleased } from "../../../actions/actions";
 import './home.css'
 import Paginado from "../Paginado/paginado";
 import { SerchBar } from "../SerchBar/serchBar";
@@ -31,6 +31,8 @@ export default function Home(){
                     // de forma que sólo se ejecutará cuando ese valor cambie.
                     //Si le pasamos un array vacío, eso hará que el efecto no dependa de ningún valor, 
                     // por lo que sólo se ejecutará al montarse y desmontarse el componente.
+
+
     function handleClick(e){
         e.preventDefault();
         dispatch(getAllVideogames());
@@ -39,7 +41,7 @@ export default function Home(){
     function HandleFilterByGenres(e){
         dispatch(filterGamesByGenres(e.target.value))
         setPagActual(1);
-        setOrden(`${e.target.value}`)
+        // setOrden(`${e.target.value}`)
     }
 
     function HandleFilterByCreator(e){
@@ -61,6 +63,13 @@ export default function Home(){
         setOrden(`${e.target.value}`)
     }
 
+    // function handleOrderByReleased(e){
+    //     e.preventDefault();
+    //     dispatch(orderByReleased(e.target.value))
+    //     setPagActual(1);
+    //     setOrden(`${e.target.value}`)
+    // }
+
     return(
         <div className="fox">
             <div className="nav">
@@ -79,6 +88,13 @@ export default function Home(){
                 <option value='des'>Orden Descendente</option>
             </select>
         </div>
+        {/* <div>
+            <label htmlFor="">Ordenado Por Fecha</label><br/>
+            <select name="" id="" onChange={e =>{ handleOrderByReleased(e)}}>
+                <option value="asc">Orden Ascendente</option>
+                <option value='des'>Orden Descendente</option>
+            </select>
+        </div> */}
         <div className="box">
         <label htmlFor="">Ordenado Por Genero</label><br />
             <select className="bot" onChange={e =>{ HandleFilterByGenres(e)}}>

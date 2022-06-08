@@ -10,24 +10,17 @@ export default function Paginado({allVg, vgPP, paginado}){
         pagN.push(i)
     return(
         <div className="par">
-        {/* <nav>  Usadas para definir el contenido que será la sección de navegación de la web */}
-            {/* <ul> */}
                 {
-                    pagN?.map(e => { // en este caso nuestro e(de elemento) representaria un numero de ese arreglo
+                    pagN?.map((e,i) => { // en este caso nuestro e(de elemento) representaria un numero de ese arreglo
                         return(
-                            // <li>
                                     <div className="box">
-                                        <button className="button" onClick={()=>paginado(e)}>{e}
-                                            {/* <a className="poc" onClick={()=>paginado(e)}>{e}</a> */}
+                                        <button key={i} className="button" onClick={()=>paginado(e)}>{e}
                                         </button>
                                     </div>
-                            // </li>
                             )
                     })
                 }
-            {/* </ul> */}
-         {/* </nav> */}
-         </div>
+        </div>
     )
 }
 {/* TAG "a": Etiqueta utilizada para crear hiperenlaces en el documento HTML*/} 

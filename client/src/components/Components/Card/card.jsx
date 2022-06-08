@@ -4,7 +4,7 @@ import '../Card/card.css'
 
 export default function Card({name,released,genres,background_image,rating,id,onClose, createdInDB}){
     const generos = genres[0].name?  genres.map(e => {return e.name}).join(", ") : genres
-    console.log(genres)
+    // console.log(genres)
     return(
         <div className="contenedor">
             <div className="caja">

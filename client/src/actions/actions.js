@@ -9,6 +9,7 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_RATING = 'ORDER_BY_RATING';
 export const POST_VG = 'POST:VG';
 export const RESET_DETAIL = 'RESET_DETAIL';
+// export const ORDER_BY_RELEASED = "ORDER_BY_RELEASED"
 
 export const getAllVideogames = ()  => {
     return (dispatch) =>{ fetch(`http://localhost:3001/videogames`)
@@ -105,6 +106,13 @@ export const getVgByname = (name) =>{
         })
     }
 }
+
+// export const orderByReleased = (payload) =>{
+//     return{
+//         type: "ORDER_BY_RELEASED",
+//         payload
+//     }
+// }
 
 export const postVG = (payload) =>{
     return async function(dispatch){
