@@ -74,7 +74,7 @@ function validate(state){
     return newState
     })
     
-    if(Object.keys(error).length){
+    if(Object.keys(error).length){ //te devuelve un array con las keys del objeto,entonces ahi pregunto si ese array tiene length (hay algo en el objeto) -> entonces hay errores -> deshabilita el boton
     setButton(false)}
   }
   const handleSelectP=(e)=>{

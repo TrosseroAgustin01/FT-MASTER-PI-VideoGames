@@ -37,7 +37,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Videogame,Genre } = sequelize.models;
 
 // Aca vendrian las relaciones
-Videogame.belongsToMany(Genre,{through: "Videogame_Genre"});
+Videogame.belongsToMany(Genre,{through: "Videogame_Genre"}); // declaro las dos entidades, lo cual me habilita a trabajar con metodos de sequelize
 Genre.belongsToMany(Videogame,{through: "Videogame_Genre"});
 // Product.hasMany(Reviews);
 
