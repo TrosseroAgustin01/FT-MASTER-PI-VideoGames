@@ -17,7 +17,7 @@ export default function Paginado({allVg, vgPP, paginado}){
                         return(
                             // <li>
                                     <div className="box">
-                                        <button className="lol" onClick={()=>paginado(e)}>{e}
+                                        <button className="button" onClick={()=>paginado(e)}>{e}
                                             {/* <a className="poc" onClick={()=>paginado(e)}>{e}</a> */}
                                         </button>
                                     </div>

@@ -38,10 +38,14 @@ export default function Home(){
 
     function HandleFilterByGenres(e){
         dispatch(filterGamesByGenres(e.target.value))
+        setPagActual(1);
+        setOrden(`${e.target.value}`)
     }
 
     function HandleFilterByCreator(e){
         dispatch(filterByCreator(e.target.value))
+        setPagActual(1);
+        setOrden(`${e.target.value}`)
     }
 
     function HandleFilterByName(e){
@@ -60,11 +64,11 @@ export default function Home(){
     return(
         <div className="fox">
             <div className="nav">
-        <Link to='/videogames'><button className="botonsito" > Crea tu VideoJuego</button></Link>
-            <h1 >Videogames Page</h1>
+        <Link to='/videogames'><button className="batsi" > Crea tu VideoJuego </button></Link>
+            <h1>Videogames Page</h1>
             <br>
             </br>
-            <button className="botonsito" onClick={e => {handleClick(e)}}>Reincia tu busqueda</button>
+            <button className="batsi" onClick={e => {handleClick(e)}}>Reincia tu busqueda</button>
     </div>
     <div className="filtros">
         <div className="bo">
@@ -108,7 +112,7 @@ export default function Home(){
             </select>
         </div>
         <div className="box">
-        <label htmlFor="">Ordenados por Creador ↓</label><br />
+        <label htmlFor="">Ordenados por Creador</label><br />
             <select className="bot" onChange={e => {HandleFilterByCreator(e)}}>
                 {/* <option value='all'>Todos</option> */}
                 <option value="all">Todos ↓</option>
@@ -131,11 +135,11 @@ export default function Home(){
                     </div>
                     <div className="conteiner">
                     {
-                    VgA?.map(e =>{
+                    VgA?.map((e,i) =>{
                         return(
-                    <div className="carta">   {/* funciona como un div pero no ocupa espacio de la pagina */}
+                    <div key={i} className="carta">   {/* funciona como un div pero no ocupa espacio de la pagina */}
                         <Link to={`/home/${e.id}`}></Link>
-                        <Card name={e.name}  background_image={e.background_image} genres={e.genres}   id={e.id} />
+                        <Card name={e.name}  background_image={e.background_image} genres={e.genres}  id={e.id} />
                     </div>
                     )})
                     }

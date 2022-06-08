@@ -9,16 +9,14 @@ import { Creator } from './components/Components/videogamesC/videogameC';
 function App() {
   return (<>
   <BrowserRouter>
-    <div >
+    {/* <div className='App'> */}
       <Routes>
         <Route exact path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/videogame/:id' element={<Detail/>}/>
         <Route path='/videogames' element={<Creator/>} />
       </Routes>
-    </div>
-    {/* <Nav/> */}
-    {/* <Route path='/videogames' element={<Videogames/>}/> */}
+    {/* </div> */}
   </BrowserRouter>
 </>);
 }

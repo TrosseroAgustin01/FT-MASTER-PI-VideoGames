@@ -1,5 +1,6 @@
 .fox{
-    background-image:url(https://i.pinimg.com/originals/d0/27/3f/d0273ff62e66543d14490a19226eb296.jpg);
+    /* background-image:url(https://i.pinimg.com/originals/5e/53/1b/5e531bab90f358d5aa0b8efb5e8eb154.jpg); */
+    background-color: #10002B;
     background-position: center;
     /* background-repeat: repeat; */
     background-repeat:repeat;
@@ -10,14 +11,15 @@
 }
 /* https://i.pinimg.com/originals/16/6b/1d/166b1dba77140403e956a9cd5a8f363e.jpg */
 .nav{
+    color: #040F0F;
     width: 100vw;
     top: 0;
-    height: 85px;
+    height: 100px;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #e44b5d;
+    background-color: #C77DFF;
     z-index: 1000;
     /* border-bottom: 1px solid rgb(0, 0, 0); */
 }
@@ -25,14 +27,17 @@
 .nav h1{
     justify-content: center;
     margin-left: 220px;
+    color: #040F0F;
 }
 .filtros{
-    background-color: #e44b5d;
+    background-color:  #C77DFF;
+    border-top: 1px solid black;
     display: flex;
     /* border-bottom: 1px solid rgb(0, 0, 0); */
     height: 80px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
+
 
 
 
@@ -59,14 +64,15 @@
     margin-top: 35px;
     margin-left: 40px;
 }
+
 .botonsito{
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #FCFFFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #040F0F;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -93,13 +99,14 @@
   justify-content: center;
 }
 .bot{
+  margin-top: 10px;
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #040F0F;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -116,4 +123,32 @@
   vertical-align: middle;
   white-space: nowrap;
   word-wrap: break-word; 
+}
+
+/* From uiverse.io */
+.batsi {
+  padding: 1.3em 3em;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #040F0F;
+  background-color: #FCFFFC;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+batsi:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+batsi:active {
+  transform: translateY(-1px);
 }

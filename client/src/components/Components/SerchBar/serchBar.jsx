@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { getVgByname } from "../../../actions/actions";
+import '../SerchBar/serchBar.css'
 
 export const SerchBar = () => {
     const dispatch = useDispatch();
@@ -14,14 +15,19 @@ export const SerchBar = () => {
 
     function handleClick(e){
         e.preventDefault();
+        if(name!== ""){
         dispatch(getVgByname(name))
+        
+        } else {
+          alert('Ingrese un VideoJuego valido')
+        }
     }
 
 
     return(
-        <div className="tdo">
-            <input className="textInputWrapper" type="text"  placeholder="...busca aqui" onChange={e => {handleInputChange(e)}}/>
-            <button type="submit" onClick={e => {handleClick(e)}}>Bucar</button>
+        <div className="pilas">
+            <input className="input" type="text"  placeholder="...busca aqui" onChange={e => {handleInputChange(e)}}/>
+            <button className="botonsito" type="submit" onClick={e => {handleClick(e)}}>Buscar</button>
         </div>
     )
 }

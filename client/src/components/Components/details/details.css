@@ -1,10 +1,11 @@
 .td{
     background-image: url(https://i.pinimg.com/originals/6d/b5/f1/6db5f1ff6221fbaff601ace85c38a6d3.jpg);
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    height: 100vh;
+    margin-top: -25px;
+    /* height: 100vh; */
 }
 
 .comp{
@@ -13,6 +14,11 @@
     text-align: center;
     justify-content: center;
 }
+
+.imagen{
+    border-radius: 5px;
+}
+
 .button{
     appearance: none;
   background-color: #FAFBFC;

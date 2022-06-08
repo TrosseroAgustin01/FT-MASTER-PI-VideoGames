@@ -24,40 +24,41 @@ const reducer =(state = initialState, action) =>{
                 }
         case FILTER_BY_GENRES:
             // const allVg = state.allVg; 
-            // // const generos = allVg.filter(e => e.genres?.some(el => el === action.payload))
-            // const generos = action.payload === 'all' ? allVg : allVg.filter(e => e.genres.includes(action.payload)) 
-            // return {
-            //     ...state,
-            //     videogames: generos
-            const all = state.allVg
-            let vgAPI = []
-            let vgDB = []
-
-            all.forEach(e => {
-                if (e.hasOwnProperty("genres") && e.genres.includes(action.payload)) {
-                        vgAPI.push(e)
-                    }
-                });
-            all.forEach(e => { 
-                if (e.hasOwnProperty("genres") && e.genres.find(c => c.name === action.payload)) {
-                    vgDB.push(e)
-                    }
-                });
-            const filtroVg = vgAPI.concat(vgDB)
-            console.log(filtroVg)
+            // const generos = allVg.filter(e => e.genres?.some(el => el === action.payload))
+            const generos = action.payload === 'all' ? state.allVg : state.videogames.filter(e => e.genres.includes(action.payload)) 
             return {
                 ...state,
-                videogames: action.payload === "all" ? all : filtroVg
-            };
+                videogames: generos
+            }
+            // const all = state.allVg
+            // let vgAPI = []
+            // let vgDB = []
+
+            // all.forEach(e => {
+            //     if (e.hasOwnProperty("genres") && e.genres.includes(action.payload)) {
+            //             vgAPI.push(e)
+            //         }
+            //     });
+            // all.forEach(e => { 
+            //     if (e.hasOwnProperty("genres") && e.genres.find(c => c.name === action.payload)) {
+            //         vgDB.push(e)
+            //         }
+            //     });
+            // const filtroVg = vgAPI.concat(vgDB)
+            // console.log(filtroVg)
+            // return {
+            //     ...state,
+            //     videogames: action.payload === "all" ? all : filtroVg
+            // };
         case FILTER_BY_CREATOR:
-            const creador = action.payload === 'created' ? state.allVg.filter(e => e.createdInDB) : state.allVg.filter(e => !e.createdInDB)
+            const creador = action.payload === 'created' ? state.videogames.filter(e => e.createdInDB) : state.videogames.filter(e => !e.createdInDB)
             return{
                 ...state,
                 videogames: action.payload === 'all' ? state.allVg : creador
             }
         case ORDER_BY_NAME:
             let reubicaciónAlph = action.payload === 'asc' ?
-            state.allVg.sort(function(a, b){
+            state.videogames.sort(function(a, b){
                 if(a.name.toLowerCase() > b.name.toLowerCase()){
                     return 1;
                 }
@@ -67,7 +68,7 @@ const reducer =(state = initialState, action) =>{
                     return 0;
                 }) 
                 : 
-            state.allVg.sort(function(a, b){
+            state.videogames.sort(function(a, b){
                 if(a.name.toLowerCase() > b.name.toLowerCase()){
                     return -1;
                 }
@@ -78,11 +79,11 @@ const reducer =(state = initialState, action) =>{
                 }) 
                 return {
                     ...state,
-                    videogames: reubicaciónAlph
+                    videogames: action.payload === 'all'?  state.allVg  : reubicaciónAlph
                 }
         case ORDER_BY_RATING:
             let rubiPorRating = action.payload === 'des' ?
-            state.allVg.sort(function(a, b){
+            state.videogames.sort(function(a, b){
                 if(a.rating > b.rating){
                     return 1;
                 }
@@ -92,7 +93,7 @@ const reducer =(state = initialState, action) =>{
                     return 0;
                 }) 
                 : 
-            state.allVg.sort(function(a, b){
+            state.videogames.sort(function(a, b){
                 if(a.rating > b.rating){
                     return -1;
                 }

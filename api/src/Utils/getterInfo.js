@@ -27,7 +27,7 @@ const getApiInfo = async (url) =>{
             released:e.released,
             rating:e.rating,
             description:e.description,
-            genres:e.genres,
+            genres:e.genres.map(e => {return e.name}).join(" "),
             platform: e.platforms.map(e => e.platform.name),
         }
     })

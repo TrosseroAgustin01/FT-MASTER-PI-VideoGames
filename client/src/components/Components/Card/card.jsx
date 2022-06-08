@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import '../Card/card.css'
 
 export default function Card({name,released,genres,background_image,rating,id,onClose, createdInDB}){
+    const generos = genres[0].name?  genres.map(e => {return e.name}).join(", ") : genres
+    console.log(genres)
     return(
         <div className="contenedor">
             <div className="caja">
                     <div className="nombre">
-                        <Link  to={`/videogame/${id}`}>
+                        <Link className="por" to={`/videogame/${id}`}>
                             <h3 className='uno' >{name}</h3>
                         </Link>
                     </div>
@@ -15,8 +17,9 @@ export default function Card({name,released,genres,background_image,rating,id,on
                         <h4>{released}</h4>
                     </div> */}
                     <div>
-                        <h4>{genres.map(e => e.name).join(" ")}</h4>
-                    {/* {genres[0].name? genres?.map(d => <h4>{d.name}</h4>) : genres?.map(d => <h4>{ d + " "}</h4>)} */}
+                        <h4>
+                            {generos}
+                        </h4>
                     </div>
                     {/* <div>
                         <h4>{rating}</h4>

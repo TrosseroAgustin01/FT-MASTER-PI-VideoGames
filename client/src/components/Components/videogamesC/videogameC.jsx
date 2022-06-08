@@ -17,9 +17,12 @@ function validate(state){
       error.description ='La descripción es necesaria'
     }
     if(!state.rating){
-      error.ratin ='La valoracion es necesaria'
+      error.rating ='La valoracion es necesaria'
     }else if(state.rating < 0 || state.rating > 5){
       error.rating ='La valoracion otorgada debe estar entre uno (1) y cinco (5)'
+    }
+    if(!/^[1-5]+$/.test(state.rating)){
+      error.rating = "la valoracion no puede contener una letra"
     }
     if(state.genres.length === 0){
       error.genres ='Debe seleccionar al menos un(1) genero'
@@ -194,8 +197,8 @@ function validate(state){
               <label className="label">Genres:</label>
               <select className="input" onChange={e=>handleSelect(e)}>
                 <option >select...</option>
-              {genres.map(g=>{
-                return(<option  value={g.name}>{g.name}</option>
+              {genres.map((g,i)=>{
+                return(<option key={i} value={g.name}>{g.name}</option>
               )})}
               </select> 
             <span>{error?.genres ||''}</span>
@@ -206,11 +209,11 @@ function validate(state){
             <label className="label">platform:</label>
               <select className="input" onChange={e=>handleSelectP(e)}>
               <option hidden>select...</option>
-            {platformss.map(p=>{
+            {platformss.map((p,i)=>{
               return(
                 
                 <option
-                
+                key={i}
                 value={p}
                 name='platform'
                 >{p}</option>
@@ -223,17 +226,19 @@ function validate(state){
             </div>
   
               <div className="nom">
-                <button type='submit' disabled={button}>Crea tu Videojuego</button>
+                <button className="btn" type='submit' disabled={button}>Crea tu Videojuego</button>
               </div>
             
         </form>
               <div className="nom">
             <br/>
                 <span>Genres selected:</span>
-                  {input.genres.map(g=>{
-                    return (<div>
+                  {input.genres.map((g,i)=>{
+                    return (<div key={i} className="igual">
+                      <div>
                       <p>{g}</p>
                       <button onClick={()=>handleDeleteGenre(g)}>x</button>
+                      </div>
                     </div>
                     )
                   })}
@@ -242,8 +247,8 @@ function validate(state){
               <div className="nom">
                 <span>platform selected:</span>
   
-                {input.platform.map(p=>{
-                  return (<div className="igual">
+                {input.platform.map((p,i)=>{
+                  return (<div key={i} className="igual">
                     <div className="all">
                       <button onClick={()=>handleDeletePlat(p)}>x</button>
                       <p>{p}</p>
